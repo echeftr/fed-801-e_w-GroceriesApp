@@ -1,31 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 5vmin;
   pointer-events: none;
+}
+* {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #111;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+.groceryList {
+  position: relative;
+  min-width: 200px;
+  margin: 10px;
+  padding: 10px;
+  color: #fff;
+  background: #111;
+  transition: 0.2s;
+}
+.groceryList:hover {
+  transform: translateY(10px);
+}
+.groceryList::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+.groceryList::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg, #03a9f4, #ff0058);
+  filter: blur(10px);
+}
+.groceryList span {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+.groceryList span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+.groceryList .content {
+  position: relative;
+  z-index: 10;
+  padding: 20px 40px;
+}
+.groceryList .content input::placeholder {
+  font-size: 1em;
+  color: #a39d9d;
+  background: #fff;
+  font-weight: 400;
+}
+.groceryList .content input {
+  display: inline-block;
+  font-size: 1.2em;
+  color: #333;
+  background: #fff;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: 400;
+  border-radius: 1px 0 0 30px;
+}
+.groceryList .content input:focus {
+  border-radius: 1px 0 0 1px;
+}
+.groceryList .content button {
+  display: inline-block;
+  font-size: 1.1em;
+  color: #111;
+  background: #fff;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  border: 2px double #fff;
+  border-radius: 1px;
+}
+.groceryList .content button:hover {
+  color: #111;
+  background: #7fffd4;
+  border: 2px double #000;
+}
+.shoppingCart {
+  min-width: 200px;
+  margin: 10px;
+  padding: 10px;
+}
+.shoppingCart {
+  position: relative;
+  min-width: 200px;
+  margin: 10px;
+  padding: 10px;
+  color: #fff;
+  background: #111;
+  transition: 0.2s;
+}
+.shoppingCart:hover {
+  transform: translateY(10px);
+}
+.shoppingCart::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+}
+.shoppingCart::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+  filter: blur(10px);
+}
+.shoppingCart span {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+.shoppingCart span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+.shoppingCart .content {
+  position: relative;
+  z-index: 10;
+  padding: 20px 40px;
+}
+.shoppingCart .content button {
+  display: inline-block;
+  font-size: 1em;
+  color: #000;
+  background: #fff;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 5px double red;
+}
+.shoppingCart .content button:hover {
+  border: 5px solid red;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 30px;
+}
+li {
+  width: 90%;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 1px;
+}
+.list-item {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+ul li::after {
+  display: block;
+  clear: both;
+}
+
+ul li {
+  overflow: hidden;
+}
+
+ul li {
+  justify-content: space-between;
+  display: flex;
+}
+.groceryList li {
+  cursor: pointer;
+}
+.groceryList li:nth-of-type(odd) {
+  background: #f7cccb;
+  color: #111;
+}
+.groceryList li:nth-of-type(even) {
+  background: #e73a51;
+}
+.shoppingCart li:nth-of-type(odd) {
+  background: #0fbe44;
+}
+.shoppingCart li:nth-of-type(even) {
+  background: #76f1a9;
+  color: #111;
+}
+footer {
+  margin-top: 40px;
+  background: #7fffd4;
+  text-align: center;
+  font-size: 1.4em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
   }
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
